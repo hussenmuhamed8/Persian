@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الاختبار الشفهي - اللغة الفارسية</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #764ba2;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        
+        .intro {
+            text-align: center;
+            color: #667eea;
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .tips {
+            background: linear-gradient(135deg, #51cf66 0%, #37b24d 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .tips h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        
+        .tips ul {
+            margin-right: 25px;
+            line-height: 1.8;
+        }
+        
+        .tips li {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-right: 5px solid #667eea;
+        }
+        
+        .section-title {
+            color: #764ba2;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+        
+        .qa-block {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            border: 2px solid #e0e0e0;
+        }
+        
+        .question {
+            color: #d63031;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .answer-persian {
+            background: #e7f5ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border-right: 4px solid #667eea;
+        }
+        
+        .persian-text {
+            font-size: 1.4em;
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .pronunciation {
+            font-size: 1em;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .translation {
+            background: #fff3bf;
+            padding: 10px;
+            border-radius: 8px;
+            color: #333;
+            font-size: 1.05em;
+            border-right: 4px solid #ffd43b;
+        }
+        
+        .note {
+            background: #fff5f5;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            border-right: 4px solid #ff6b6b;
+            color: #c92a2a;
+            font-size: 0.95em;
+        }
+        
+        .template-section {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+        
+        .template-section h3 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .template-answer {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            backdrop-filter: blur(10px);
+        }
+        
+        .template-answer .persian-text {
+            color: white;
+            font-size: 1.3em;
+            line-height: 1.8;
+        }
+        
+        .home-btn {
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin: 40px auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-size: 1.3em;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+        }
+        
+        .home-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 3px solid #667eea;
+        }
+        
+        .footer p {
+            font-size: 1.2em;
+            color: #764ba2;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            .section-title {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🗣️ الاختبار الشفهي - نموذج الإجابات 🗣️</h1>
+        
+        <div class="intro">
+            <p><strong>نماذج إجابات جاهزة للأسئلة الشائعة في الاختبار الشفهي</strong></p>
+            <p>استخدم هذه النماذج كدليل وعدّلها حسب معلوماتك الشخصية</p>
+        </div>
+        
+        <div class="tips">
+            <h3>💡 نصائح مهمة للاختبار الشفهي:</h3>
+            <ul>
+                <li>✅ تحدث بوضوح وببطء</li>
+                <li>✅ حافظ على التواصل البصري مع الفاحص</li>
+                <li>✅ لا تتردد في طلب إعادة السؤال إذا لم تفهمه</li>
+                <li>✅ استخدم جمل بسيطة وواضحة</li>
+                <li>✅ مارس الإجابات قبل الاختبار</li>
+            </ul>
+        </div>
+        
+        <!-- القسم الأول: التحية والتعريف الأساسي -->
+        <div class="section">
+            <h2 class="section-title">١. التحية والتعريف الأساسي 👋</h2>
+            
+            <div class="qa-block">
+                <p class="question">❓ سلام، حالتان چطور است؟ (كيف حالك؟)</p>
+                <div class="answer-persian">
+                    <p class="persian-text">سلام، من خوبم، ممنونم.</p>
+                    <p class="pronunciation">(سَلام، مَن خوبَم، مَمنونَم)</p>
+                </div>
+                <div class="translation">
+                    📌 الترجمة: مرحباً، أنا بخير، شكراً.
+                </div>
+            </div>
+            
+            <div class="qa-block">
+                <p class="question">❓ اسم شما چیست؟ (ما اسمك؟)</p>
+                <div class="answer-persian">
+                    <p class="persian-text">اسم من حسین است.</p>
+                    <p class="pronunciation">(إسمِ مَن حُسَين أست)</p>
+                </div>
+                <div class="translation">
+                    📌 الترجمة: اسمي حسين.
+                </div>
+                <div class="note">
+                    💡 ملاحظة: غيّر "حسین" إلى اسمك الخاص
+                </div>
+            </div>
+            
+            <div class="qa-block">
+                <p class="question">❓ نام خانوادگی شما چیست؟ (ما اسم عائلتك؟)</p>
+                <div class="answer-persian">
+                    <p class="persian-text">نام خانوادگی من محمد است.</p>
+                    <p class="pronunciation">(نامِ خانَوادِگي مَن مُحَمَّد أست)</p>
+                </div>
+                <div class="translation">
+                    📌 الترجمة: اسم عائلتي محمد.
+                </div>
+            </div>
+            
+            <div class="qa-block">
+                <p class="question">❓ چند سال دارید؟ (كم عمرك؟)</p>
+                <div class="answer-persian">
+                    <p class="persian-text">من بیست و پنج سال دارم.</p>
+                    <p class="pronunciation">(مَن بيست و بَنج سال دارَم)</p>
+                </div>
+                <div class="translation">
+                    📌 الترجمة: عمري 25 سنة.
+                </div>
+                <div class="note">
+                    💡 ملاحظة: استبدل العدد بعمرك الحقيقي
+                </div>
+            </div>
+        </div>
+        
+        <!-- القسم الثاني: الجنسية والسكن -->
+        <div class="section">
+            <h2 class="section-title">٢. الجنسية والسكن 🌍</h2>
+            
+            <div class="qa-block">
+                <p class="question">❓ شما اهل کجا هستید؟ (من أين أنت؟)</p>
+                <div class="answer-persian">
+                    <p class="persian-text">من اهل عراق هستم.</p>
+                    <p class="pronunciation">(مَن أهلِ عِراق هَستَم)</p>
+                </div>
+                <div class="translation">
+                    📌 الترجمة: أنا من العراق.
+                </div>
+            </div>
+            
+            <div class="qa-block">
+                <p class="question">❓ در کجا زندگی می‌کنید؟ (أين تعيش؟)</p>
+                <div class="answer-persian">
+                    <p class="persian-text">من در بغداد زندگی می‌کنم.</p>
+                    <p class="pronunciation">(مَن دَر بَغداد زِندِگي مي كُنَم)</p>
+                </div>
+                <div class="translation">
+                    📌 الترجمة: أعيش في بغداد.
+                </div>
+                <div class="note">
+                    💡 ملاحظة: استبدل "بغداد" بمدينتك
+                </div>
+            </div>
+            
+            <div class="qa-block">
+                <p class="question">❓ ملیت شما چیست؟ (ما جنسيتك؟)</p>
+                <div class="answer-persian">
+                    <p class="persian-text">من عراقی هستم.</p>
+                    <p class="pronunciation">(مَن عِراقي هَستَم)</p>
+                </div>
+                <div class="translation">
+                    📌 الترجمة: أنا عراقي.
+                </div>
+            </div>
+        </div>
+        
+        <!-- القسم الثالث: العمل والمهنة -->
+        <div class="section">
+            <h2 class="section-title">٣. العمل والمهنة 💼</h2>
+            
+            <div class="qa-block">
+                <p class="question">❓ شغل شما چیست؟ (ما عملك؟)</p>
+                <div class="answer-persian">
+                    <p class="persian-text">من معلم هستم.</p>
+                    <p class="pronunciation">(مَن مُعَلِّم هَستَم)</p>
+                </div>
+                <div class="translation">
+                    📌 الترجمة: أنا معلم.
+                </div>
+                <div class="note">
+                    💡 مهن أخرى: دکتر (طبيب)، مهندس (مهندس)، دانشجو (طالب)، کارمند (موظف)
+                </div>
+            </div>
+            
+            <div class="qa-block">
+                <p class="question">❓ محل کار شما کجاست؟ (أين مكان عملك؟)</p>
+                <div class="answer-persian">
+                    <p class="persian-text">محل کار من مدرسه است.</p>
+                    <p class="pronunciation">(مَحَلِّ كارِ مَن مَدرَسِه أست)</p>
+                </div>
+                <div class="translation">
+                    📌 الترجمة: مكان عملي هو المدرسة.
+                </div>
+                <div class="note">
+                    💡 أماكن أخرى: بیمارستان (مستشفى)، شرکت (شركة)، دانشگاه (جامعة)
+                </div>
+            </div>
+            
+            <div class="qa-block">
+                <p class="question">❓ روزی چند ساعت کار می‌کنید؟ (كم ساعة تعمل يومياً؟)</p>
+                <div class="answer-persian">
+                    <p class="persian-text">من روزی چهار ساعت در مدرسه کار می‌کنم.</p>
+                    <p class="pronunciation">(مَن روزي تشَهار ساعَت دَر مَدرَسِه كار مي كُنَم)</p>
+                </div>
+                <div class="translation">
+                    📌 الترجمة: أعمل 4 ساعات يومياً في المدرسة.
+                </div>
+            </div>
+            
+            <div class="qa-block">
+                <p class="question">❓ از چه ساعتی تا چه ساعتی کار می‌کنید؟ (من أي ساعة إلى أي ساعة تعمل؟)</p>
+                <div class="answer-persian">
+                    <p class="persian-text">من از ساعت هشت صبح تا دوازده ظهر کار می‌کنم.</p>
+                    <p class="pronunciation">(مَن أز ساعَتِ هَشت صُبح تا دَوازدَه ظُهر كار مي كُنَم)</p>
+                </div>
+                <div class="translation">
+                    📌 الترجمة: أعمل من الساعة 8 صباحاً حتى 12 ظهراً.
+                </div>
+            </div>
+        </div>
+        
+        <!-- القسم الرابع: الدراسة والتعليم -->
+        <div class="section">
+            <h2 class="section-title">٤. الدراسة والتعليم 📚</h2>
+            
+            <div class="qa-block">
+                <p class="question">❓ چه رشته‌ای درس می‌خوانید؟ (ماذا تدرس؟)</p>
+                <div class="answer-persian">
+                    <p class="persian-text">من مهندسی کامپیوتر درس می‌خوانم.</p>
+                    <p class="pronunciation">(مَن مُهَندِسي كامبيوتَر دَرس مي خوانَم)</p>
+                </div>
+                <div class="translation">
+                    📌 الترجمة: أدرس هندسة الحاسوب.
+                </div>
+            </div>
+            
+            <div class="qa-block">
+                <p class="question">❓ در کجا درس می‌خوانید؟ (أين تدرس؟)</p>
+                <div class="answer-persian">
+                    <p class="persian-text">من در دانشگاه بغداد درس می‌خوانم.</p>
+                    <p class="pronunciation">(مَن دَر دانِشگاهِ بَغداد دَرس مي خوانَم)</p>
+                </div>
+                <div class="translation">
+                    📌 الترجمة: أدرس في جامعة بغداد.
+                </div>
+            </div>
+            
+            <div class="qa-block">
+                <p class="question">❓ در چه سالی هستید؟ (في أي سنة دراسية؟)</p>
+                <div class="answer-persian">
+                    <p class="persian-text">من در سال سوم هستم.</p>
+                    <p class="pronunciation">(مَن دَر سالِ سِوُّم هَستَم)</p>
+                </div>
+                <div class="translation">
+                    📌 الترجمة: أنا في السنة الثالثة.
+                </div>
+            </div>
+        </div>
+        
+        <!-- القسم الخامس: العائلة -->
+        <div class="section">
+            <h2 class="section-title">٥. العائلة 👨‍👩‍👧‍👦</h2>
+            
+            <div class="qa-block">
+                <p class="question">❓ متاهل هستید؟ (هل أنت متزوج؟)</p>
+                <div class="answer-persian">
+                    <p class="persian-text">بله، من متاهل هستم.</p>
+                    <p class="pronunciation">(بَلَه، مَن مُتَأهِّل هَستَم)</p>
+                </div>
+                <div class="translation">
+                    📌 الترجمة: نعم، أنا متزوج.
+                </div>
+                <div class="note">
+                    💡 إذا غير متزوج: نه، من مجرد هستم (لا، أنا أعزب)
+                </div>
+            </div>
+            
+            <div class="qa-block">
+                <p class="question">❓ چند فرزند دارید؟ (كم لديك من الأطفال؟)</p>
+                <div class="answer-persian">
+                    <p class="persian-text">من دو فرزند دارم.</p>
+                    <p class="pronunciation">(مَن دو فَرزَند دارَم)</p>
+                </div>
+                <div class="translation">
+                    📌 الترجمة: لدي طفلان.
+                </div>
+            </div>
+            
+            <div class="qa-block">
+                <p class="question">❓ چند برادر و خواهر دارید؟ (كم لديك من الإخوة والأخوات؟)</p>
+                <div class="answer-persian">
+                    <p class="persian-text">من دو برادر و یک خواهر دارم.</p>
+                    <p class="pronunciation">(مَن دو بَرادَر و يِك خواهَر دارَم)</p>
+                </div>
+                <div class="translation">
+                    📌 الترجمة: لدي أخوان وأخت واحدة.
+                </div>
+            </div>
+        </div>
+        
+        <!-- القسم السادس: الهوايات والاهتمامات -->
+        <div class="section">
+            <h2 class="section-title">٦. الهوايات والاهتمامات ⚽</h2>
+            
+            <div class="qa-block">
+                <p class="question">❓ سرگرمی شما چیست؟ (ما هوايتك؟)</p>
+                <div class="answer-persian">
+                    <p class="persian-text">من عاشق فوتبال هستم و دوست دارم کتاب بخوانم.</p>
+                    <p class="pronunciation">(مَن عاشِقِ فوتبال هَستَم و دوست دارَم كِتاب بِخوانَم)</p>
+                </div>
+                <div class="translation">
+                    📌 الترجمة: أحب كرة القدم وأحب قراءة الكتب.
+                </div>
+            </div>
+            
+            <div class="qa-block">
+                <p class="question">❓ در اوقات فراغت چه کار می‌کنید؟ (ماذا تفعل في وقت فراغك؟)</p>
+                <div class="answer-persian">
+                    <p class="persian-text">من دوست دارم موسیقی گوش کنم و با دوستانم وقت بگذرانم.</p>
+                    <p class="pronunciation">(مَن دوست دارَم موسيقي گوش كُنَم و با دوستانَم وَقت بِگُذرانَم)</p>
+                </div>
+                <div class="translation">
+                    📌 الترجمة: أحب الاستماع للموسيقى وقضاء الوقت مع أصدقائي.
+                </div>
+            </div>
+        </div>
+        
+        <!-- نموذج إجابة كاملة -->
+        <div class="template-section">
+            <h3>📝 نموذج إجابة كاملة للتعريف عن النفس</h3>
+            
+            <div class="template-answer">
+                <p class="persian-text">
+                    سلام، من خوبم، ممنونم.<br><br>
+                    اسم من حسین است.<br>
+                    من اهل عراق هستم.<br>
+                    من در بغداد زندگی می‌کنم.<br><br>
+                    من معلم هستم.<br>
+                    محل کار من مدرسه است.<br>
+                    من روزی چهار ساعت در مدرسه کار می‌کنم.<br>
+                    من از ساعت هشت صبح تا دوازده ظهر کار می‌کنم.<br><br>
+                    من متاهل هستم و دو فرزند دارم.<br>
+                    من دوست دارم کتاب بخوانم و فوتبال تماشا کنم.<br><br>
+                    خوشحالم که با شما آشنا شدم.
+                </p>
+            </div>
+            
+            <div class="translation" style="background: white; color: #333; margin-top: 20px;">
+                <p><strong>📌 الترجمة الكاملة:</strong></p>
+                <p>
+                    مرحباً، أنا بخير، شكراً.<br><br>
+                    اسمي حسين.<br>
+                    أنا من العراق.<br>
+                    أعيش في بغداد.<br><br>
+                    أنا معلم.<br>
+                    مكان عملي هو المدرسة.<br>
+                    أعمل 4 ساعات يومياً في المدرسة.<br>
+                    أعمل من الساعة 8 صباحاً حتى 12 ظهراً.<br><br>
+                    أنا متزوج ولدي طفلان.<br>
+                    أحب قراءة الكتب ومشاهدة كرة القدم.<br><br>
+                    سعيد بلقائك.
+                </p>
+            </div>
+        </div>
+        
+        <a href="persian_grammar_guide.html" class="home-btn">🏠 العودة للصفحة الرئيسية</a>
+        
+        <div class="footer">
+            <p>✨ تم إنشاءه بواسطة حسين محمد ✨</p>
+            <p style="color: #667eea; font-size: 1em;">@Husseinn</p>
+        </div>
+    </div>
+</body>
+</html>
