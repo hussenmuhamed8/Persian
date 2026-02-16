@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار اللغة الفارسية</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #764ba2;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        
+        .intro {
+            text-align: center;
+            color: #667eea;
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .question-section {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-right: 5px solid #667eea;
+        }
+        
+        .section-title {
+            color: #764ba2;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+        
+        .question {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            border: 2px solid #e0e0e0;
+        }
+        
+        .question-text {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .option {
+            padding: 15px;
+            background: #f8f9fa;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1em;
+        }
+        
+        .option:hover {
+            background: #e9ecef;
+            border-color: #667eea;
+        }
+        
+        .option input[type="radio"] {
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        
+        .option.correct {
+            background: #d4f4dd;
+            border-color: #51cf66;
+        }
+        
+        .option.incorrect {
+            background: #fff5f5;
+            border-color: #ff6b6b;
+        }
+        
+        .submit-btn {
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin: 40px auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-size: 1.5em;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+        }
+        
+        .result {
+            display: none;
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 20px;
+            margin: 30px 0;
+        }
+        
+        .result h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        
+        .result .score {
+            font-size: 3em;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        
+        .result .message {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+        }
+        
+        .retry-btn {
+            background: white;
+            color: #764ba2;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        
+        .home-btn {
+            background: #51cf66;
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            margin: 10px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 3px solid #667eea;
+        }
+        
+        .footer p {
+            font-size: 1.2em;
+            color: #764ba2;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            .question-text {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 اختبار اللغة الفارسية 🎯</h1>
+        
+        <div class="intro">
+            <p><strong>اختبر معلوماتك في اللغة الفارسية!</strong></p>
+            <p>20 سؤال موزعة على: الضمائر، تصريف الأفعال، الأرقام، وأسماء الإشارة</p>
+        </div>
+        
+        <form id="quizForm">
+            <!-- القسم الأول: الضمائر -->
+            <div class="question-section">
+                <h3 class="section-title">📌 القسم الأول: الضمائر وتغييرها</h3>
+                
+                <div class="question">
+                    <p class="question-text">١. إذا بدأ السؤال بـ "تو"، كيف يكون الجواب؟</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q1" value="a"> او
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="b"> من
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="c"> ما
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="d"> آنها
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p class="question-text">٢. "شما ایرانی هستید؟" - ما هو الجواب الصحيح للفرد الواحد؟</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q2" value="a"> ما ایرانی هستیم
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="b"> من ایرانی هستم
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="c"> او ایرانی است
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="d"> تو ایرانی هستی
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p class="question-text">٣. "علی و حسن دانشجو هستند؟" - بأي ضمير نجيب؟</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q3" value="a"> او
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q3" value="b"> من
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q3" value="c"> آنها
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q3" value="d"> ما
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p class="question-text">٤. "تو و علی دوست هستید؟" - الجواب يكون بـ:</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q4" value="a"> من
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q4" value="b"> ما
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q4" value="c"> او
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q4" value="d"> آنها
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p class="question-text">٥. "فاطمه معلم است؟" - نجيب عنها بـ:</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q5" value="a"> من
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q5" value="b"> او
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q5" value="c"> ما
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q5" value="d"> تو
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- القسم الثاني: تصريف الأفعال -->
+            <div class="question-section">
+                <h3 class="section-title">📌 القسم الثاني: تصريف فعل "بودن"</h3>
+                
+                <div class="question">
+                    <p class="question-text">٦. ما هو تصريف "بودن" مع الضمير "من" في المضارع؟</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q6" value="a"> هستی
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q6" value="b"> هستم
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q6" value="c"> هست
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q6" value="d"> هستند
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p class="question-text">٧. ما هي صيغة النفي لـ "او هست"؟</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q7" value="a"> نیستم
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q7" value="b"> نیستی
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q7" value="c"> نیست
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q7" value="d"> نیستند
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p class="question-text">٨. "آنها دانشجو ______" - ما هو التصريف الصحيح؟</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q8" value="a"> هستم
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q8" value="b"> هستی
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q8" value="c"> هست
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q8" value="d"> هستند
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p class="question-text">٩. صيغة النفي لـ "ما هستیم" هي:</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q9" value="a"> نیستم
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q9" value="b"> نیستیم
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q9" value="c"> نیست
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q9" value="d"> نیستند
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p class="question-text">١٠. تصريف فعل بودن مع "شما" هو:</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q10" value="a"> هستم
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q10" value="b"> هستیم
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q10" value="c"> هستید
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q10" value="d"> هستند
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- القسم الثالث: الأرقام -->
+            <div class="question-section">
+                <h3 class="section-title">📌 القسم الثالث: الأرقام</h3>
+                
+                <div class="question">
+                    <p class="question-text">١١. كيف نكتب الرقم "7" بالفارسية؟</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q11" value="a"> شش
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q11" value="b"> هفت
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q11" value="c"> هشت
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q11" value="d"> نه
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p class="question-text">١٢. ما هو العدد "پانزده"؟</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q12" value="a"> 13
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q12" value="b"> 14
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q12" value="c"> 15
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q12" value="d"> 16
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p class="question-text">١٣. كيف نكتب "50" بالفارسية؟</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q13" value="a"> چهل
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q13" value="b"> پنجاه
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q13" value="c"> شصت
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q13" value="d"> هفتاد
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p class="question-text">١٤. ما هو العدد "نود"؟</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q14" value="a"> 60
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q14" value="b"> 70
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q14" value="c"> 80
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q14" value="d"> 90
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p class="question-text">١٥. العدد "12" بالفارسية هو:</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q15" value="a"> یازده
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q15" value="b"> دوازده
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q15" value="c"> سیزده
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q15" value="d"> چهارده
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- القسم الرابع: أسماء الإشارة -->
+            <div class="question-section">
+                <h3 class="section-title">📌 القسم الرابع: أسماء الإشارة</h3>
+                
+                <div class="question">
+                    <p class="question-text">١٦. ما معنى "این"؟</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q16" value="a"> ذلك (بعيد)
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q16" value="b"> هذا (قريب)
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q16" value="c"> هناك
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q16" value="d"> أولئك
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p class="question-text">١٧. كيف نقول "هناك" بالفارسية؟</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q17" value="a"> اینجا
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q17" value="b"> آنجا
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q17" value="c"> این
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q17" value="d"> آن
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p class="question-text">١٨. "اینها" تعني:</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q18" value="a"> هذا (مفرد قريب)
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q18" value="b"> هؤلاء (جمع قريب)
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q18" value="c"> أولئك (جمع بعيد)
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q18" value="d"> هنا
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p class="question-text">١٩. ما هو اسم الإشارة البعيد للمفرد؟</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q19" value="a"> این
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q19" value="b"> آن
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q19" value="c"> اینها
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q19" value="d"> آنها
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p class="question-text">٢٠. "من اینجا هستم" تعني:</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q20" value="a"> أنا هناك
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q20" value="b"> أنا هنا
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q20" value="c"> نحن هنا
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q20" value="d"> هو هناك
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+            <button type="submit" class="submit-btn">📊 عرض النتيجة 📊</button>
+        </form>
+        
+        <div class="result" id="result">
+            <h2>🎉 نتيجة الاختبار 🎉</h2>
+            <div class="score" id="scoreDisplay"></div>
+            <div class="message" id="messageDisplay"></div>
+            <button class="retry-btn" onclick="location.reload()">🔄 إعادة الاختبار</button>
+            <a href="persian_grammar_guide.html" class="home-btn">🏠 العودة للصفحة الرئيسية</a>
+        </div>
+        
+        <div class="footer">
+            <p>✨ تم إنشاءه بواسطة حسين محمد ✨</p>
+            <p style="color: #667eea; font-size: 1em;">@Husseinn</p>
+        </div>
+    </div>
+    
+    <script>
+        // الإجابات الصحيحة
+        const correctAnswers = {
+            q1: 'b',   // من
+            q2: 'b',   // من ایرانی هستم
+            q3: 'c',   // آنها
+            q4: 'b',   // ما
+            q5: 'b',   // او
+            q6: 'b',   // هستم
+            q7: 'c',   // نیست
+            q8: 'd',   // هستند
+            q9: 'b',   // نیستیم
+            q10: 'c',  // هستید
+            q11: 'b',  // هفت
+            q12: 'c',  // 15
+            q13: 'b',  // پنجاه
+            q14: 'd',  // 90
+            q15: 'b',  // دوازده
+            q16: 'b',  // هذا (قريب)
+            q17: 'b',  // آنجا
+            q18: 'b',  // هؤلاء (جمع قريب)
+            q19: 'b',  // آن
+            q20: 'b'   // أنا هنا
+        };
+        
+        document.getElementById('quizForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            let score = 0;
+            const totalQuestions = 20;
+            
+            // فحص الإجابات
+            for (let i = 1; i <= totalQuestions; i++) {
+                const question = `q${i}`;
+                const selectedAnswer = document.querySelector(`input[name="${question}"]:checked`);
+                const options = document.querySelectorAll(`input[name="${question}"]`);
+                
+                if (selectedAnswer) {
+                    const selectedLabel = selectedAnswer.parentElement;
+                    
+                    if (selectedAnswer.value === correctAnswers[question]) {
+                        score++;
+                        selectedLabel.classList.add('correct');
+                    } else {
+                        selectedLabel.classList.add('incorrect');
+                        // إظهار الإجابة الصحيحة
+                        options.forEach(option => {
+                            if (option.value === correctAnswers[question]) {
+                                option.parentElement.classList.add('correct');
+                            }
+                        });
+                    }
+                }
+            }
+            
+            // عرض النتيجة
+            const percentage = (score / totalQuestions) * 100;
+            let message = '';
+            let emoji = '';
+            
+            if (percentage >= 90) {
+                message = 'ممتاز جداً! 🌟 أنت متقن للغة الفارسية!';
+                emoji = '🏆';
+            } else if (percentage >= 75) {
+                message = 'أحسنت! 👏 مستواك جيد جداً!';
+                emoji = '⭐';
+            } else if (percentage >= 60) {
+                message = 'جيد! 👍 لكن تحتاج لمزيد من التدريب';
+                emoji = '📚';
+            } else {
+                message = 'حاول مرة أخرى! 💪 المزيد من المراجعة سيساعدك';
+                emoji = '📖';
+            }
+            
+            document.getElementById('scoreDisplay').innerHTML = `${emoji} ${score} / ${totalQuestions} ${emoji}`;
+            document.getElementById('messageDisplay').textContent = message;
+            document.getElementById('result').style.display = 'block';
+            
+            // التمرير للنتيجة
+            document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
